@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Garbage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+      <a href="index.html" class="logo-container">
+      
+        <img src="WMPHT.png" alt="Portland Waste Management" class="logo-image">
+      </a>
+      
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="report.html">Report Issue</a>
+        <a href="status.html">Health Status</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h2>Report Uncollected Garbage</h2>
+      <p>Help us keep Portland clean and healthy by reporting waste issues</p>
+    </div>
+    
+    <div class="form-container">
+      <form id="reportForm">
+        <div class="form-group">
+          <label for="location">Community / Location:</label>
+          <input type="text" id="location" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="waste-type">Type of Waste:</label>
+          <input type="text" id="waste-type">
+        </div>
+        
+        <div class="form-group">
+          <label for="duration">How long has garbage been uncollected?</label>
+          <select id="duration">
+            <option>1–3 days</option>
+            <option>4–7 days</option>
+            <option>Over 1 week</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Health Risks Observed:</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="rats">
+              <label for="rats">Rats</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="flies">
+              <label for="flies">Flies</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="mosquitoes">
+              <label for="mosquitoes">Mosquitoes</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <button type="submit" class="btn">Submit Report</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i> Your report has been submitted successfully. We will address this issue as soon as possible.
+        </div>
+      </form>
+    </div>
+    
+    <a href="index.html" class="back-link">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Portland Waste Management. All rights reserved.</p>
+    <p>For emergencies, call: (876) 555-1234</p>
+  </footer>
+
+  <script>
+    document.getElementById('reportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('successMessage').style.display = 'block';
+      
+      // Reset form after 3 seconds
+      setTimeout(function() {
+        document.getElementById('reportForm').reset();
+        document.getElementById('successMessage').style.display = 'none';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
